@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Eternal Lev ($LEV) — On-Chain Heritage</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Texture overlay for premium tactile feel -->
+  <div class="noise-overlay"></div>
+  <div class="tricolor-accent"></div>
+
+  <!-- Minimalist Language Banner -->
+  <div class="lang-strip">
+    <div class="lang-strip-content">
+      <span id="stripText" class="strip-text">Prefer browsing in Bulgarian?</span>
+      <button class="strip-btn" onclick="toggleLanguage()">
+        <span id="stripBtnText">Продължи на български 🇧🇬</span>
+      </button>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#" class="brand">
+        <div class="brand-coin-ring">
+          <!-- The image you selected as the best version is referenced here -->
+          <img src="coin.jpg" alt="The Eternal Lev Logo" class="brand-img" onerror="this.src='https://placehold.co/80x80/D4AF37/050608?text=1L'">
+        </div>
+        <div class="brand-meta">
+          <span class="brand-title">THE ETERNAL LEV</span>
+          <span class="brand-sub">$LEV • SOLANA</span>
+        </div>
+      </a>
+
+      <nav class="nav-menu">
+        <a href="#concept" data-i18n="nav-concept">Concept</a>
+        <a href="#tokenomics" data-i18n="nav-tokenomics">Mechanics</a>
+        <a href="#path" data-i18n="nav-path">The Path</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="lang-toggle-icon" onclick="toggleLanguage()" title="Switch Language">
+          <i class="fa-solid fa-globe"></i> <span id="navLangToggle">EN</span>
+        </button>
+        <a href="https://pump.fun" target="_blank" class="btn-primary" data-i18n="nav-buy">Trade $LEV</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero-section">
+      <div class="container hero-grid">
+        <div class="hero-left">
+          <div class="status-badge">
+            <span class="pulse-dot"></span>
+            <span data-i18n="hero-badge">Preserving History • Uniting People</span>
+          </div>
+
+          <h1 class="hero-heading">
+            <span data-i18n="hero-heading-1">The Bulgarian Lev</span><br />
+            <em class="gold-text" data-i18n="hero-heading-2">Remains Eternal On-Chain.</em>
+          </h1>
+
+          <p class="hero-desc" data-i18n="hero-desc">
+            The Lev is now a piece of history, but its concept deserves to live on. We are transitioning the classic 1 Lev coin into the Web3 era—not just as a digital relic, but as a genuine gathering point for crypto enthusiasts. No empty promises, just a solid community deciding its own future.
+          </p>
+
+          <div class="hero-buttons">
+            <a href="https://pump.fun" target="_blank" class="btn-primary">
+              <i class="fa-solid fa-arrow-trend-up"></i> <span data-i18n="btn-join">Join on Pump.fun</span>
+            </a>
+            <a href="https://t.me/EthernalLevSOL" target="_blank" class="btn-secondary">
+              <i class="fa-brands fa-telegram"></i> <span>Telegram</span>
+            </a>
+            <a href="https://x.com/EternalLev" target="_blank" class="btn-secondary">
+              <i class="fa-brands fa-x-twitter"></i> <span>X (Twitter)</span>
+            </a>
+          </div>
+
+          <div class="ca-widget">
+            <div class="ca-info">
+              <span class="ca-tag" data-i18n="ca-label">SMART CONTRACT (SOLANA)</span>
+              <span class="ca-hash" id="caHash">PumpFunContractAddressWillBeUpdatedHere...</span>
+            </div>
+            <button class="ca-copy-btn" onclick="copyCA()" title="Copy CA">
+              <i class="fa-regular fa-copy"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="hero-right">
+          <div class="coin-stage" id="coinStage">
+            <div class="coin-aura"></div>
+            <div class="coin-card" id="coinCard">
+              <img src="coin.jpg" alt="1 Bulgarian Lev Coin" class="coin-graphic">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container" id="tokenomics">
+      <div class="parity-card glass-panel">
+        <div class="parity-info">
+          <div>
+            <span class="kicker" data-i18n="parity-tag">Reference Benchmark</span>
+            <h3 data-i18n="parity-title">Goal: 0.51 € (Historical Parity)</h3>
+          </div>
+          <div class="parity-rate">
+            <span class="rate-current">1 $LEV = 0.51129 €</span>
+          </div>
+        </div>
+        <div class="parity-meter">
+          <div class="parity-progress" style="width: 25%;"></div>
+        </div>
+        <div class="parity-footer">
+          <span data-i18n="parity-note-1">Fair Launch Bonding Curve</span>
+          <span data-i18n="parity-note-2">Fixed Supply: 1,955,830 $LEV</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="container section-gap" id="concept">
+      <div class="section-header">
+        <span class="kicker" data-i18n="concept-kicker">The Philosophy</span>
+        <h2 data-i18n="concept-heading">Why We Built This</h2>
+      </div>
+
+      <div class="grid-2">
+        <div class="glass-panel content-card">
+          <div class="card-icon"><i class="fa-solid fa-building-columns"></i></div>
+          <h3 data-i18n="card1-title">One Lev Is Still One Lev</h3>
+          <p data-i18n="card1-text">
+            We all carried this coin in our pockets. Today, the Lev is out of circulation, but rather than letting it gather dust in a drawer, we preserve its essence on the blockchain. It's straightforward: a digital asset carrying the historical weight and a reference value of 51 euro cents.
+          </p>
+        </div>
+
+        <div class="glass-panel content-card">
+          <div class="card-icon"><i class="fa-solid fa-users-rays"></i></div>
+          <h3 data-i18n="card2-title">Community Over Hype</h3>
+          <p data-i18n="card2-text">
+            The crypto space is full of projects promising the impossible on day one. We take a grounded approach. First, we gather people passionate about Web3. Then, as liquidity and trust grow, we will collaboratively vote on directing funds toward meaningful, real-world causes.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="container section-gap" id="path">
+      <div class="section-header">
+        <span class="kicker" data-i18n="roadmap-kicker">Organic Evolution</span>
+        <h2 data-i18n="roadmap-heading">The Path Forward</h2>
+      </div>
+
+      <div class="grid-3 roadmap-grid">
+        <div class="glass-panel step-card">
+          <span class="step-num">I.</span>
+          <h4 data-i18n="step1-title">The Foundation</h4>
+          <p data-i18n="step1-text">A transparent launch on Pump.fun. No hidden allocations. We begin by assembling the core group of enthusiasts on X and Telegram.</p>
+        </div>
+        <div class="glass-panel step-card">
+          <span class="step-num">II.</span>
+          <h4 data-i18n="step2-title">Consolidation</h4>
+          <p data-i18n="step2-text">Fostering open discussions on markets and technology, observing the organic growth, and solidifying the community's trust.</p>
+        </div>
+        <div class="glass-panel step-card">
+          <span class="step-num">III.</span>
+          <h4 data-i18n="step3-title">Collective Impact</h4>
+          <p data-i18n="step3-text">Once momentum is established, we implement decentralized voting to fund charitable causes chosen entirely by the holders.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <div class="footer-left">
+        <div class="footer-brand">THE ETERNAL LEV</div>
+        <p class="footer-motto" data-i18n="footer-motto">Preserving legacy. Building the future of Web3.</p>
+      </div>
+      <div class="footer-socials">
+        <a href="https://x.com/EternalLev" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="https://t.me/EthernalLevSOL" target="_blank"><i class="fa-brands fa-telegram"></i></a>
+      </div>
+    </div>
+    <div class="container footer-legal">
+      <p data-i18n="footer-disclaimer">Disclaimer: $LEV is a digital tribute and community project. It is not legal tender or a financial security. Always act responsibly.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
