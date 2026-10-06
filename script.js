@@ -6,12 +6,10 @@ const dict = {
     "nav-tokenomics": "Mechanics",
     "nav-path": "The Path",
     "nav-buy": "Trade $LEV",
-    "hero-badge": "Preserving History • Uniting People",
     "hero-heading-1": "The Bulgarian Lev",
     "hero-heading-2": "Remains Eternal On-Chain.",
     "hero-desc": "The Lev is now a piece of history, but its concept deserves to live on. We are transitioning the classic 1 Lev coin into the Web3 era—not just as a digital relic, but as a genuine gathering point for crypto enthusiasts. No empty promises, just a solid community deciding its own future.",
     "btn-join": "Join on Pump.fun",
-    "ca-label": "SMART CONTRACT (SOLANA)",
     "parity-tag": "Reference Benchmark",
     "parity-title": "Goal: 0.51 € (Historical Parity)",
     "parity-note-1": "Fair Launch Bonding Curve",
@@ -40,12 +38,10 @@ const dict = {
     "nav-tokenomics": "Механика",
     "nav-path": "Пътят",
     "nav-buy": "Търгувай $LEV",
-    "hero-badge": "Пазим историята • Обединяваме хората",
     "hero-heading-1": "Българският лев",
     "hero-heading-2": "Остава вечен в блокчейна.",
     "hero-desc": "Левът вече е история, но няма причина просто да изчезне. Пренасяме концепцията за старата монета от 1 лев в днешния Web3 свят. Не предлагаме празни обещания, а реално пространство, където хората с интерес към крипто и децентрализация да се съберат, да обменят идеи и заедно да решават бъдещето на проекта.",
     "btn-join": "Влез през Pump.fun",
-    "ca-label": "СМАРТ КОНТРАКТ (SOLANA)",
     "parity-tag": "Исторически ориентир",
     "parity-title": "Цел: 0,51 € (Оригиналният курс)",
     "parity-note-1": "Справедлив старт (Fair Launch)",
@@ -77,7 +73,7 @@ function toggleLanguage() {
   document.querySelectorAll('[data-i18n]').forEach((el) => {
     const key = el.getAttribute('data-i18n');
     if (dict[currentLang][key]) {
-      el.innerHTML = dict[currentLang][key]; // innerHTML allows bold/em tags to render
+      el.innerHTML = dict[currentLang][key]; 
     }
   });
 
@@ -86,7 +82,7 @@ function toggleLanguage() {
   document.getElementById('navLangToggle').textContent = currentLang === 'en' ? 'EN' : 'BG';
 }
 
-// Ultra-smooth 3D Parallax Tilt
+// Ultra-smooth 3D Parallax Tilt for Coin
 const stage = document.getElementById('coinStage');
 const card = document.getElementById('coinCard');
 
@@ -96,7 +92,6 @@ if (stage && card) {
     const x = e.clientX - rect.left - rect.width / 2;
     const y = e.clientY - rect.top - rect.height / 2;
 
-    // Dampened rotation for heavier, premium feel
     const rotX = (-y / (rect.height / 2)) * 15;
     const rotY = (x / (rect.width / 2)) * 15;
 
@@ -108,17 +103,23 @@ if (stage && card) {
   });
 }
 
-// CA Copy Feedback
-function copyCA() {
-  const hash = document.getElementById('caHash').innerText;
-  navigator.clipboard.writeText(hash).then(() => {
-    const btn = document.querySelector('.ca-copy-btn i');
-    btn.className = 'fa-solid fa-check';
-    btn.style.color = '#D4AF37';
-    
-    setTimeout(() => {
-      btn.className = 'fa-regular fa-copy';
-      btn.style.color = '';
-    }, 2000);
-  });
+// Background Music Logic
+const bgMusic = document.getElementById('bgMusic');
+const soundToggleBtn = document.getElementById('soundToggleBtn');
+let isMusicPlaying = false;
+
+function toggleSound() {
+  if (!bgMusic) return;
+
+  if (isMusicPlaying) {
+    bgMusic.pause();
+    soundToggleBtn.innerHTML = '<i class="fa-solid fa-volume-xmark"></i>';
+    soundToggleBtn.style.color = 'var(--text-dim)';
+  } else {
+    bgMusic.volume = 0.25;
+    bgMusic.play().catch(e => console.log("Audio blocked by browser."));
+    soundToggleBtn.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
+    soundToggleBtn.style.color = 'var(--gold-prime)';
+  }
+  isMusicPlaying = !isMusicPlaying;
 }
