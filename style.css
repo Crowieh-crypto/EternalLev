@@ -279,3 +279,8 @@ h1, h2, h3, h4, .brand-title, .kicker {
   .coin-card { width: 300px; height: 300px; }
   .coin-aura { width: 320px; height: 320px; }
 }
+/* Премахва грозното оцветяване от браузъра при влизане през Google Search фрагменти */
+::target-text {
+  background-color: transparent;
+  color: inherit;
+}
